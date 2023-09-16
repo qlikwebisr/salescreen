@@ -35,31 +35,55 @@ login();
 /*  Main functions */
 
 //Get iframe link
-//default link
-var src = `https://${config.tenant}/single/?appid=${config.appId}&sheet=${config.sheets[0]}&theme=breeze&opt=nointeraction,noselections`;
-var iframe = `<iframe src = "${src}"></iframe>`;
 
+//default link
+/* var src = `https://${config.tenant}/single/?appid=${config.appId}&sheet=${config.sheets[0]}&theme=breeze&opt=nointeraction,noselections`;
+var iframe = `<iframe src = "${src}"></iframe>`;
+const iframe_container = document.getElementById('iframe-container');
+iframe_container.innerHTML = iframe;  */
+
+var src = ``;
 const iframe_container = document.getElementById('iframe-container');
 
-iframe_container.innerHTML = iframe;
+var iframes = '<div class="frames">';
+for (let index = 0; index < config.sheets.length; index++) {
 
-let index = 0;
+    console.log(config.sheets[index]);
+
+    src = `https://${config.tenant}/single/?appid=${config.appId}&sheet=${config.sheets[index]}&theme=breeze&opt=nointeraction,noselections`;
+
+    iframes += `<div class="iframe_box iframe_box_${index}" style="display:${(index == 0) ? 'block' : 'none'}"  id-frame=${index}><h1>Iframe ${index}</h1>`;
+    iframes += `<iframe src = "${src}"></iframe></div>`
+}
+
+iframes +=`</div>`
+
+iframe_container.innerHTML = iframes; 
+
+console.log('iframes', iframes);
+
+let ind = 0;
 
 setInterval(() => {
 
-    if(index > config.sheets.length) {
-        index = 0;
+    if(ind >= config.sheets.length) {
+        ind= 0;
     }
 
-    src = `https://${config.tenant}/single/?appid=${config.appId}&sheet=${config.sheets[index]}&theme=breeze&opt=nointeraction,noselections`;
+    document.querySelectorAll('.iframe_box').forEach(framebox => {
+        framebox.style.display="none";
+    });
+    document.querySelector('.iframe_box_' + ind).style.display="block";
+
+  /*   src = `https://${config.tenant}/single/?appid=${config.appId}&sheet=${config.sheets[index]}&theme=breeze&opt=nointeraction,noselections`;
     iframe = `<iframe src = "${src}"></iframe>`;
-    console.log('src', src);
+    console.log('src', src); 
+    iframe_container.innerHTML = iframe; */
 
-    iframe_container.innerHTML = iframe;
+    console.log('index', ind);
 
-    console.log('index', index);
+    ind++;
 
-    index++;
 }, 20000);
 
 
