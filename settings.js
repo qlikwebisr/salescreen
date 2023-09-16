@@ -12,8 +12,8 @@ export const config = {
     ],
 
     /*  tenant: "5ua3eo022stfzwr.eu.qlikcloud.com",
-    appId: "97b6233b-2ce6-43c1-9705-fce4897232a1",
     webIntegrationId: "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",
+    appId: "97b6233b-2ce6-43c1-9705-fce4897232a1",
     sheets: [
         "6494ecd7-f210-461c-8eea-3f294f947a0e",
         "dbd9c802-94a9-4171-89e8-f554c8d5dd8a"
