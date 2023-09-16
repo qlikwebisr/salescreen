@@ -46,12 +46,14 @@ iframe_container.innerHTML = iframe;
 let index = 0;
 
 setInterval(() => {
+
     if(index > config.sheets.length) {
         index = 0;
     }
 
     src = `https://${config.tenant}/single/?appid=${config.appId}&sheet=${config.sheets[index]}&theme=breeze&opt=nointeraction,noselections`;
     iframe = `<iframe src = "${src}"></iframe>`;
+    console.log('src', src);
     iframe_container.innerHTML = iframe;
 
     console.log('index', index);
