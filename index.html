@@ -1,38 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <script type="text/javascript">
-    const webIntegrationId = "ZGC8NaE0quC-lNBk07VorG5oCwWdN9wU";
-    function login() {
-      function isLoggedIn() {
-        return fetch("https://qisrael.eu.qlikcloud.com/api/v1/users/me", {
-          method: 'GET',
-          mode: 'cors',
-          credentials: 'include',
-          headers: {
-            'Content-Type': 'application/json',
-            'qlik-web-integration-id': webIntegrationId,
-          },
-        }).then(response => {
-          return response.status === 200;
-        });
-      }
-      return isLoggedIn().then(loggedIn => {
-        if (!loggedIn) {
-          // check login
-            window.top.location.href = "https://qisrael.eu.qlikcloud.com/login?qlik-web-integration-id=" + webIntegrationId + "&returnto=" + top.location.href;
-          throw new Error('not logged in');
-        }
-      });
-    }
-	login()
-  </script>
+  <title>SaaS Screen Tests</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body style="height:800px;">
-	<iframe src="https://qisrael.eu.qlikcloud.com/single/?appid=8b27584e-7e1f-4417-9056-c6ad22c1842d&sheet=2f19c8f1-93ac-4a33-a603-2ed347f38758&theme=breeze&opt=nointeraction,noselections,currsel" style="border:none;width:100%;height:100%;"></iframe>
+<body>
+  <h1>Sales Screen</h1>
+  <div id="iframe-container">
+   <!--  <iframe
+      src="https://qisrael.eu.qlikcloud.com/single/?appid=8b27584e-7e1f-4417-9056-c6ad22c1842d&sheet=2f19c8f1-93ac-4a33-a603-2ed347f38758&theme=breeze&opt=nointeraction,noselections,currsel"
+      style="border:none;width:100%;height:100%;"></iframe> -->
+  </div>
+
+  <script type="module" src="script.js"></script>
+
+</body>
+
 </html>
