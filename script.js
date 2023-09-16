@@ -31,7 +31,13 @@ function login() {
 
 login();
 
-/*  Main functions */
+/*  Main logic */
+
+//default iframe link
+/* var src = `https://${config.tenant}/single/?appid=${config.appId}&sheet=${config.sheets[0]}&theme=breeze&opt=nointeraction,noselections`;
+var iframe = `<iframe src = "${src}"></iframe>`;
+const iframe_container = document.getElementById('iframe-container');
+iframe_container.innerHTML = iframe;  */
 
 var src = ``;
 const iframe_container = document.getElementById('iframe-container');
@@ -58,17 +64,25 @@ iframe_container.innerHTML = iframes;
 let ind = 0;
 
 setInterval(() => {
-
+  //reset counter
     if(ind >= config.sheets.length) {
         ind= 0;
     }
-
+    //hide all iframe_boxes
     document.querySelectorAll('.iframe_box').forEach(framebox => {
         framebox.style.display="none";
     });
+    //show the relevant box
     document.querySelector('.iframe_box_' + ind).style.display="block";
 
-    console.log('index', ind);
+     /*   
+    //with one iframe
+    src = `https://${config.tenant}/single/?appid=${config.appId}&sheet=${config.sheets[index]}&theme=breeze&opt=nointeraction,noselections`;
+    iframe = `<iframe src = "${src}"></iframe>`;
+    console.log('src', src); 
+    iframe_container.innerHTML = iframe; */
+
+    //console.log('index', ind);
 
     ind++;
 
