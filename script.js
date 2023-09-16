@@ -1,5 +1,4 @@
 //main js file
-
 import { config } from "./settings.js";
 
 console.log('config', config);
@@ -33,7 +32,6 @@ function login() {
 login();
 
 /*  Main functions */
-
 //Get iframe link
 
 //default link
@@ -52,7 +50,8 @@ for (let index = 0; index < config.sheets.length; index++) {
 
     src = `https://${config.tenant}/single/?appid=${config.appId}&sheet=${config.sheets[index]}&theme=breeze&opt=nointeraction,noselections`;
 
-    iframes += `<div class="iframe_box iframe_box_${index}" style="display:${(index == 0) ? 'block' : 'none'}"  id-frame=${index}><h1>Iframe ${index}</h1>`;
+    iframes += `<div class="iframe_box iframe_box_${index}" style="display:${(index == 0) ? 'block' : 'none'}"  id-frame=${index}>`;
+    //iframes += `<h1>Iframe ${index}</h1>`;
     iframes += `<iframe src = "${src}"></iframe></div>`
 }
 
