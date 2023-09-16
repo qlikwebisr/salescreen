@@ -2,7 +2,7 @@
 /* @media screen and (max-width:768px) { */
  /* base styling */
  /* Box Model */
- * {
+* {
 	box-sizing: border-box;
 }
 :root{
@@ -19,7 +19,6 @@ html, body {
 	margin:0;
 	padding:0;
 }
-
 iframe{
     border:none;
     width:100%;
