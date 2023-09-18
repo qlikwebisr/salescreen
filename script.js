@@ -8,7 +8,7 @@ const webIntegrationId = config.webIntegrationId;
 /* Login function  */
 function login() {
   function isLoggedIn() {
-    return fetch("https://qisrael.eu.qlikcloud.com/api/v1/users/me", {
+    return fetch("https://" + config.tenant + "/api/v1/users/me", {
       method: 'GET',
       mode: 'cors',
       credentials: 'include',
@@ -23,7 +23,7 @@ function login() {
   return isLoggedIn().then(loggedIn => {
     if (!loggedIn) {
       // check login
-        window.top.location.href = "https://qisrael.eu.qlikcloud.com/login?qlik-web-integration-id=" + webIntegrationId + "&returnto=" + top.location.href;
+        window.top.location.href = "https://" + config.tenant + "/login?qlik-web-integration-id=" + webIntegrationId + "&returnto=" + top.location.href;
       throw new Error('not logged in');
     }
   });
