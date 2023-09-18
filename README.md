@@ -1,1 +1,2 @@
-# Screen for SaaS app that change the sheets by period of time
+# Sales Screen
+Web Application for showing Qlik SaaS app, that changes the sheets by period of time.
